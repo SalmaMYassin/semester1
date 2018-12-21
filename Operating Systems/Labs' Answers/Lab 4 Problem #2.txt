@@ -1,0 +1,98 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <Windows.h>
+
+void convertToBinary1(int num)
+{
+	// Initial array size
+	int arrSize = 10;
+
+	// Allocate 10 memory slots for the array (we are building a dynamic array)
+	int *ptr = (int*)malloc(arrSize * sizeof(int));
+
+	// Confirm the allocation process
+	if (ptr == NULL)
+	{
+		printf("Error! Failed to allocate memory.");
+		exit(0);
+	}
+
+	// First element at array (we are pointing there right now)
+	int index = 0;
+	while (num > 0)
+	{
+		// Reallocate memory / dynamically increase our array size if exceeded the allocated slots already.
+		if (index == arrSize) {
+			ptr = (int*)realloc(ptr, ++arrSize);
+			if (ptr == NULL) {
+				printf("Error! Failed to allocate memory.");
+				exit(0);
+			}
+		}
+
+		// Get the 0 or 1 for the number i.e. the process of finding number represtation
+		int mod = num % 2;
+
+		// Store the result (0 or 1) in current index value then increase the index by 1 
+		// This could be ptr[index]; index++; (two lines solution)
+		ptr[index++] = mod;
+
+		num = num / 2;
+	}
+	// Output
+	while (index > 0) {
+		// Output from right to left (reversed).
+		printf("%d", ptr[--index]);
+	}
+}
+
+
+void convertToBinary3(int num)
+{
+	int ptr[1000];
+	int size = 0;
+	while (num > 0)
+	{
+		int mod = num % 2;
+		ptr[size++] = mod;
+		num = num / 2;
+	}
+	printf("\n");
+	// Output
+	while (size > 0) {
+		printf("%d", ptr[--size]);
+	}
+}
+
+
+void convertToBinary2(int num)
+{
+	const int bits = 8;
+	int mask = 1 << (bits - 1);
+	while (mask) {
+		printf("%d", (num & mask) != 0);
+		mask >>= 1;
+	}
+}
+
+
+
+
+unsigned long convertToBinary4(int num)
+{
+	if (num == 0) {
+		return 0;
+	}
+	int mod = num % 2;
+	return mod + (10 * convertToBinary4(num / 2));
+}
+
+int main()
+{
+	//convertToBinary3(25);
+	printf("binary: %d", convertToBinary4(100));
+	printf("\n");
+	system("pause");
+	return 0;
+}

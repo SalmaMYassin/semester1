@@ -1,0 +1,99 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+
+// Function prototype
+double getFahrenheit(double celsius);
+bool betweenRange(double celsius);
+bool validStepSize(double stepSize, double startTempreature, double endTempreature);
+
+static int lowerLimit;
+static int upperLimit;
+
+int main() {
+
+	double startTempreature;
+	double endTempreature;
+	double stepSize;
+
+	int hold;
+
+	printf("Enter value of lower limit\n");
+	scanf_s("%d", &lowerLimit);
+
+	printf("Enter value of upper limit\n");
+	scanf_s("%d", &upperLimit);
+
+	printf("Enter start tempreature\n");
+	scanf_s("%lf", &startTempreature);
+
+	while (!betweenRange(startTempreature))
+	{
+		printf("Please enter start tempreature that is at least %d\n", lowerLimit);
+		scanf_s("%lf", &startTempreature);
+	}
+
+	printf("Enter end tempreature\n");
+	scanf_s("%lf", &endTempreature);
+
+	while (!betweenRange(endTempreature))
+	{
+		printf("Please enter end tempreature that is at maximum %d\n", upperLimit);
+		scanf_s("%lf", &endTempreature);
+	}
+
+	printf("Enter step size\n");
+	scanf_s("%lf", &stepSize);
+	printf("Value of stepSize: %.2lf\n", stepSize);
+
+	while (!validStepSize(stepSize, startTempreature, endTempreature))
+	{
+		printf("Please enter step size that is between %.2lf, %.2lf\n", startTempreature, endTempreature);
+		scanf_s("%d", &stepSize);
+	}
+
+	double degressInFahrenheit = 0;
+	double degressInCelsius = 0;
+	printf("Celisus\t\t Fahrenheit\n");
+	for (double i = startTempreature; i < endTempreature; i += stepSize)
+	{
+		degressInCelsius = i;
+		degressInFahrenheit = getFahrenheit(i);
+
+		if (degressInCelsius > endTempreature)
+		{
+			printf("somehow we ended here %lf, %lf", degressInFahrenheit, endTempreature);
+			break;
+			scanf_s("%d", &hold);
+		}
+			
+
+		printf("%lf\t %lf\n", degressInCelsius, degressInFahrenheit);
+
+	}
+	scanf_s("%d", &hold);
+	return 0;
+}
+
+
+/*
+Example
+Convert 20 degrees Celsius to degrees Fahrenheit:
+T(°F) = 20°C × 9/5 + 32 = 68 °F
+*/
+
+double getFahrenheit(double celsius)
+{
+	return celsius * 9 / 5 + 32;
+}
+
+bool betweenRange(double celsius)
+{
+	return celsius >= lowerLimit && celsius <= upperLimit;
+}
+
+bool validStepSize(double stepSize, double startTempreature, double endTempreature)
+{
+	//printf("%.2lf, %.2lf, %.2lf", stepSize, startTempreature, endTempreature);
+	return stepSize <= startTempreature && stepSize <= endTempreature;
+}

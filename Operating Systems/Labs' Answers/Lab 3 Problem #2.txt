@@ -1,0 +1,49 @@
+#include <stdio.h>
+int main()
+{
+	// Number of data sets
+	int test_case;
+	// Read number of data sets and store it in variable test_case
+	scanf_s("%d", &test_case);
+
+	// This could be while(test_case > 0) {test_case--;}
+	// Also as 	for (int i = 0; i < test_case; i++) {}
+	while (test_case--) {
+		
+		// First number which will be read indicates the amount of money we have i.e. {10,2,4} 10 is the money.
+		double total_amount = 0;
+
+		// Read the money we have and store it in total_amount
+		scanf_s("%lf", &total_amount);
+
+		// Define variable for total_expense (a counter)
+		double total_expense = 0;
+
+		// A variable to hold each item cost in the set
+		double value;
+
+		// Read "%lf" indicates an expected double value
+		scanf_s("%lf", &value);
+
+		// -1 is a flag we use to indicate end of input.
+		// This loop never terminates until a -1 is passed
+		while (value != -1) {
+			// Sum up the cost of each item into the total_expense variable
+			total_expense += value;
+
+			// Read next item value
+			scanf_s("%lf", &value);
+		}
+
+		// Add the 8% TAX the total_expense
+		total_expense = total_expense + (total_expense * 0.08);
+
+		// Check if our money "total_amount" is sufficient to afford the cost stored at "total_expense"
+		if (total_amount >= total_expense)
+			printf("ENOUGH MONEY\n");
+		else
+			// Read more about printf formats https://www.tutorialspoint.com/c_standard_library/c_function_printf.htm
+			printf("$%.2lf SHORT \n", total_expense - total_amount);
+	}
+	return 0;
+}

@@ -1,0 +1,10 @@
+﻿Build started 6/19/2017 4:27:38 PM.
+     1>Project "D:\E-Learning\Year 2\Semester 1\Analysis of Algorithms\Project\ProblemSolvingSession19-6\ProblemSolvingSession19-6\ProblemSolvingSession19-6.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\E-Learning\Year 2\Semester 1\Analysis of Algorithms\Project\ProblemSolvingSession19-6\Debug\ProblemSolvingSession19-6.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\E-Learning\Year 2\Semester 1\Analysis of Algorithms\Project\ProblemSolvingSession19-6\Debug\ProblemSolvingSession19-6.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\E-Learning\Year 2\Semester 1\Analysis of Algorithms\Project\ProblemSolvingSession19-6\Debug\ProblemSolvingSession19-6.lib" /MACHINE:X86 Debug\Source.obj
+     1>LINK : fatal error LNK1168: cannot open D:\E-Learning\Year 2\Semester 1\Analysis of Algorithms\Project\ProblemSolvingSession19-6\Debug\ProblemSolvingSession19-6.exe for writing
+     1>Done Building Project "D:\E-Learning\Year 2\Semester 1\Analysis of Algorithms\Project\ProblemSolvingSession19-6\ProblemSolvingSession19-6\ProblemSolvingSession19-6.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.21

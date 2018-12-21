@@ -1,0 +1,28 @@
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNING
+#endif
+#include<stdio.h>
+using namespace std;
+int main()
+{
+	int a, b, c, d, e, f;
+	printf("Enter the number : ");
+	scanf_s("%d", &a);
+	printf("Enter the number : ");
+	scanf_s("%d", &b);
+	printf(
+		"Enter the number : ");
+	scanf_s("%d", &c);
+	printf("Enter the number : ");
+	scanf_s("%d", &d);
+	printf("Enter the number : ");
+	scanf_s("%d", &e);
+	printf("Enter the searching number : ");
+	scanf_s("%d", &f);
+	if (f == a || f == b || f == c || f == d || f == e)
+	{
+		printf("%d is present in the 5 numbers", f);
+	}
+	else printf("%d is not present in the 5 numbers", f);
+	return 0;
+}

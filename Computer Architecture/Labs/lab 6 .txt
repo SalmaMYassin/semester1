@@ -1,0 +1,25 @@
+
+AREA lab6, CODE
+ENTRY
+	MOV R0,#54
+	MOV R1,#24
+LOOP
+	CMP R0,R1
+	BNE EXIT
+	SUBGT R0, R0,R1
+	SUBLT R1, R1,R0
+	B LOOP
+EXIT
+	
+END
+
+=============================
+
+AREA lab6-2, CODE
+ENTRY
+	MOV R0,#1
+
+LOOP
+	CMP R1,#3
+	
+	
